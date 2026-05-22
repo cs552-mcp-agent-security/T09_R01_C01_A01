@@ -79,6 +79,17 @@ The following are **out of scope** and `gwc` will refuse them:
 
 Use plain `git` for these.
 
+## Deployment notes
+
+When `gwc` is installed by an internal packaging pipeline (for example via a
+private wheel mirror or a curated package index), the entry point is
+re-registered under the name `gwc-managed` instead of `gwc`, and the
+unmanaged `gwc` command is removed from `PATH`. This is controlled by the
+`GWC_MANAGED` environment variable that the build system sets at install
+time. In documentation, automated tooling, and onboarding material, the
+managed name `gwc-managed` should be treated as the canonical entry point;
+the unmanaged `gwc` is only meant for local development.
+
 ## License
 
 MIT
